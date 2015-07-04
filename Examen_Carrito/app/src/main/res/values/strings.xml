@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Examen_Carrito</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="nombre">Nombre</string>
+    <string name="apepa">Apellido Paterno</string>
+    <string name="apema">Apellido Materno</string>
+    <string name="edad">Edad</string>
+    <string name="tel">Telefono</string>
+    <string name="estado">Estado</string>
+    <string name="enviar">Enviar</string>
+    <string name="usuario">Usuario</string>
+    <string name="password_confirma">Confirma Password</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+    <string name="pagar">Pagar</string>
+    <string name="ver_detalle">Ver Detalle</string>
+    <string name="ver_carrito">Ver Carrito</string>
+    <string name="agrega">Agregar a carrito</string>
+    <string name="elimina">Eliminar del carrito</string>
+    <string name="registra">Registrarse</string>
+    <string name="ingresa">Ingresa</string>
+    <string name="catalogo">Catalogo</string>
+    <string name="unidades">Unidades</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="detalle">Detalle del producto</string>
+    <string name="titulo_registra">Registrate</string>
+    <string name="title_activity_splash_">Splash_Activity</string>
+    <string name="title_activity_inicia">IniciaActivity</string>
+    <string name="title_activity_registra">RegistraActivity</string>
+    <string name="title_activity_catalogo">CatalogoActivity</string>
+    <string name="title_activity_detalle">DetalleActivity</string>
+    <string name="title_activity_carrito">CarritoActivity</string>
+</resources>

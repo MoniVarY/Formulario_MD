@@ -14,6 +14,9 @@ public class Constants {
     public final static String APEMA="et_apema";
     public final static String MENSAJE= "Ingrese todos los datos";
     public final static String ERROR_PASSWORD= "No coinciden los password";
+    public final static String ERROR_PASSWORD_INCORRECTA= "El password es incorrecto";
+    public final static String ERROR_REGISTRA= "No se pudo registrar el usuario";
+    public final static String ERROR_USUARIO= "El usuario no existe";
     public static final String KEY_ID = "id";
     public static final String NAME = "name";
     public static final String TELEFONO = "telefono";
@@ -23,9 +26,10 @@ public class Constants {
     public static final String TABLA_USUARIO = "tbusuarios";
     public static  final int DATABASE_VERSION=1;
     public static  final String DATABASE_NAME="dbexamencarrito.sqlite";
-    public final static String CREA_USUARIO_TABLA = "CREATE TABLE IF NOT EXISTS Customers " + "(name TEXT, username TEXT, email TEXT, phone TEXT, password TEXT)";
-    public final static String CREA_PRODUCTOS_TABLA = "CREATE TABLE IF NOT EXISTS Catalog " + "(code TEXT, name TEXT, mindesc TEXT, maxdesc TEXT, image TEXT, units INTEGER, price REAL)";
-    public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM Customers" + "WHERE username =";
+    public final static String CREA_USUARIO_TABLA = "CREATE TABLE IF NOT EXISTS tbusuarios " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,name TEXT, username TEXT, email TEXT, phone TEXT, password TEXT)";
+    public final static String CREA_PRODUCTOS_TABLA = "CREATE TABLE IF NOT EXISTS tbproductos " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,code TEXT, name TEXT, mindesc TEXT, maxdesc TEXT, image TEXT, units INTEGER, price REAL)";
+    public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM tbusuarios " + "WHERE username = ";
+    //public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM tbusuarios";
     public final static String TABLA_PRODUCTOS = "tbproductos";
 
 }

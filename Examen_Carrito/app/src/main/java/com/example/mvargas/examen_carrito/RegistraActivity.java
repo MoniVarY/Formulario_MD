@@ -1,6 +1,7 @@
 package com.example.mvargas.examen_carrito;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mvargas.examen_carrito.common.Constants;
+import com.example.mvargas.examen_carrito.db.DBOperaciones;
+import com.example.mvargas.examen_carrito.models.Customer;
 
 
 public class RegistraActivity extends ActionBarActivity  implements View.OnClickListener{
@@ -52,13 +55,21 @@ public class RegistraActivity extends ActionBarActivity  implements View.OnClick
         if (v == btn_registra){
             obtenerDatos();
             if (!nombre.trim().equals("")&&!telefono.trim().equals("")&&!email.trim().equals("")&&!password.trim().equals("")&&!confirm_password.trim().equals("")&&!usuario.trim().equals("")) {
-                //if(!nombre.equals("")&&!nombre.equals(" ")&&!telefono.equals("")&&!telefono.equals(" ")&&!email.equals("")&&!email.equals(" ")&&!usuario.equals("")&&!usuario.equals(" "))
                 if (password.equals(confirm_password)) {
+                    DBOperaciones dbop= new DBOperaciones();
+                    Customer cliente=new Customer(0,nombre,telefono,email,usuario,password);
+                    Boolean insertausuario =dbop.creaCliente(cliente);
+                    if(insertausuario==true) {
 
-                    Intent intent1=new Intent(this,MainActivity.class);
-                    intent1.putExtra("value",1);
-                    startActivity(intent1);
+                        Intent intent1 = new Intent(this, MainActivity.class);
+                        intent1.putExtra("value", 1);
+                        startActivity(intent1);
+                    }
+                    else {
+                        Toast.makeText(this, Constants.ERROR_REGISTRA, Toast.LENGTH_LONG).show();
+                    }
                 }
+
                 else {
                     Toast.makeText(this, Constants.ERROR_PASSWORD, Toast.LENGTH_LONG).show();
                 }

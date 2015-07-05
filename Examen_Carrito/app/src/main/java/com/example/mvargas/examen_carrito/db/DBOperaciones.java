@@ -30,15 +30,16 @@ public class DBOperaciones {
         db.execSQL(Constants.CREA_USUARIO_TABLA);
     }
 
-    public boolean registerCliente(Customer customer) {
+    public boolean creaCliente(Customer customer) {
         boolean success = false;
         db = carritoSQLiteHelper.getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
-            values.put("nombre", customer.getNombre());
-            values.put("usuario", customer.getUsuario());
-            values.put("telefono", customer.getTelefono());
-            values.put("email", customer.getCorreo());
+            values.put("id", (byte[]) null);
+            values.put("name", customer.getNombre());
+            values.put("username", customer.getUsuario());
+            values.put("email", customer.getTelefono());
+            values.put("phone", customer.getCorreo());
             values.put("password", customer.getPassword());
 
             db.insert(Constants.TABLA_USUARIO, null, values);
@@ -62,21 +63,23 @@ public class DBOperaciones {
         String phone;
         String email;
         String password;
-        int algo;
+        int id;
 
         db = carritoSQLiteHelper.getWritableDatabase();
 
         try {
-            Cursor cursor = db.rawQuery(Constants.OBTIENE_USUARIO_QUERY + customer.getUsuario(), null);
+            Cursor cursor = db.rawQuery(Constants.OBTIENE_USUARIO_QUERY + "'"+customer.getUsuario()+"'", null);
+            //Cursor cursor = db.rawQuery(Constants.OBTIENE_USUARIO_QUERY , null);
             if (cursor.moveToFirst()) {
-                name = cursor.getString(0);
-                username = cursor.getString(1);
-                email = cursor.getString(2);
-                phone = cursor.getString(3);
-                password = cursor.getString(4);
+                id=cursor.getInt(0);
+                name = cursor.getString(1);
+                username = cursor.getString(2);
+                email = cursor.getString(3);
+                phone = cursor.getString(4);
+                password = cursor.getString(5);
 
 
-                savedCustomer = new Customer(name, phone, email, username, password);
+                savedCustomer = new Customer(id,name, phone, email, username, password);
                 db.close();
             }
             else {

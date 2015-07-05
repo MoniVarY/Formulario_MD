@@ -13,13 +13,13 @@ public class DatabaseManager {
 
 
 
-    public static final String CREATE_TABLE_PERSONAS = "CREATE TABLE IF NOT EXISTS " + Constants.CREA_USUARIO_TABLA + "(" + Constants.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
+    /*public static final String CREATE_TABLE_PERSONAS = "CREATE TABLE IF NOT EXISTS " + Constants.CREA_USUARIO_TABLA + "(" + Constants.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
             + Constants.NAME+ " TEXT, "
             + Constants.TELEFONO+ " TEXT, "
             + Constants.USUARIO+ " TEXT, "
             + Constants.PASSWORD+ " TEXT, "
             + Constants.CORREO+ " TEXT )";
 //IF NOT EXISTS
-
+*/
 }
 

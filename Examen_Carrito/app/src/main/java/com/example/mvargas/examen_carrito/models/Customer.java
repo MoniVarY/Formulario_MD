@@ -11,25 +11,29 @@ public class Customer {
     private String nombre;
     private String telefono;
     private String usuario;
-    private String password;
+    private String contrasena;
     private String correo;
-    private int id;
+    private int id_cliente;
 
-    public Customer(String name, String phone, String email, String username, String password) {
+    public Customer(int id,String name, String phone, String email, String username, String password) {
 
+        id_cliente=id;
+        nombre=name;
+        telefono=phone;
+        correo=email;
+        usuario=username;
+        contrasena=password;
 
 
     }
-    public Customer(){
 
-    }
 
     public int getId() {
-        return id;
+        return id_cliente;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_cliente= id;
     }
 
 
@@ -58,11 +62,11 @@ public class Customer {
     }
 
     public String getPassword() {
-        return password;
+        return contrasena;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.contrasena = password;
     }
 
     public String getCorreo() {

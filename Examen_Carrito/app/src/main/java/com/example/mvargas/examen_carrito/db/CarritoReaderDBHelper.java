@@ -24,7 +24,7 @@ public class CarritoReaderDBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(DatabaseManager.CREATE_TABLE_PERSONAS);
+        //db.execSQL(DatabaseManager.CREATE_TABLE_PERSONAS);
     }
 
 
@@ -42,7 +42,7 @@ public class CarritoReaderDBHelper extends SQLiteOpenHelper{
         db.execSQL(CREATE_TABLE_PERSONAS);
         onCreate(db);*/
     }
-    public void insertarDatos(SQLiteDatabase db,String nombre, String ap1, String ap2, String tel, String estado, String edad) {
+   /* public void insertarDatos(SQLiteDatabase db,String nombre, String ap1, String ap2, String tel, String estado, String edad) {
         String sqlInsert = "insert into " + Constants.TABLA_USUARIO +
                 " values("+"null"+","
                 + "'"+nombre +"'"+","
@@ -76,5 +76,5 @@ public class CarritoReaderDBHelper extends SQLiteOpenHelper{
 
         }
         return arraycliente;
-    }
+    }*/
 }

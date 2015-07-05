@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvargas.examen_carrito.common.Constants;
+import com.example.mvargas.examen_carrito.db.DBOperaciones;
+import com.example.mvargas.examen_carrito.models.Customer;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -38,9 +40,37 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        String usuario="";
+        String contrasena="";
+        String nombre="";
+        String correo="";
+        String telefono="";
+        int id=0;
+        usuario=et_usuario.getText().toString();
+        contrasena=et_password.getText().toString();
 
             if (v == btn_ingresar) {
-                if (!et_usuario.getText().toString().equals("")&&!et_password.getText().toString().equals("")) {
+                if (!usuario.equals("")&&!contrasena.equals("")) {
+
+
+                    DBOperaciones dbop= new DBOperaciones();
+                    Customer cliente = new Customer(id,nombre,telefono,correo,usuario,contrasena);
+                    Customer clienteRetornado=dbop.getCustomer(cliente);
+                    if(!(clienteRetornado == null)){
+                        if(usuario.equals(clienteRetornado.getUsuario())){
+                            if (contrasena.equals(clienteRetornado.getPassword())){
+                                Intent intent1=new Intent(this,CatalogoActivity.class);
+                                intent1.putExtra("value",1);
+                                startActivity(intent1);
+                            }
+                            else {
+                                Toast.makeText(this, Constants.ERROR_PASSWORD_INCORRECTA, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                    else {
+                        Toast.makeText(this, Constants.ERROR_USUARIO, Toast.LENGTH_LONG).show();
+                    }
 
                 }else {
                     Toast.makeText(this, Constants.MENSAJE, Toast.LENGTH_LONG).show();

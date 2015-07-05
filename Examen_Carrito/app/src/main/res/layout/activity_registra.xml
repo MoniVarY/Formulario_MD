@@ -1,206 +1,212 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.mvargas.examen_carrito.RegistraActivity"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/todo">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.example.mvargas.examen_carrito.RegistraActivity"
+        android:scrollbarAlwaysDrawVerticalTrack="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/todo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titulo"
-        android:text="@string/titulo_registra"
-        android:textSize="@dimen/texto_g"
-        android:layout_marginBottom="@dimen/texto_ch"
-        android:layout_centerHorizontal="true"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/titulo"
+                android:text="@string/titulo_registra"
+                android:textSize="@dimen/texto_g"
+                android:layout_marginBottom="@dimen/texto_ch"
+                android:layout_centerHorizontal="true"
+                />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos1"
-        android:layout_below="@id/titulo">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos1"
+                android:layout_below="@id/titulo">
 
 
-        <TextView
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/tv_nombre"
-            android:text="@string/nombre"
-            android:textSize="@dimen/texto_m"
-            />
+                <TextView
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_nombre"
+                    android:text="@string/nombre"
+                    android:textSize="@dimen/texto_m"
+                    />
 
-        <EditText
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/et_nombre"
-            android:textSize="@dimen/texto_m"/>
+                <EditText
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/et_nombre"
+                    android:textSize="@dimen/texto_m"/>
 
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos2"
+                android:layout_below="@id/lyo_datos1">
+
+
+                <TextView
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_telefono"
+                    android:text="@string/tel"
+                    android:textSize="@dimen/texto_m"
+                    />
+
+                <EditText
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/et_telefono"
+                    android:textSize="@dimen/texto_m"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos3"
+                android:layout_below="@id/lyo_datos2">
+
+
+                <TextView
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_usuario"
+                    android:text="@string/usuario"
+                    android:textSize="@dimen/texto_m"
+                    />
+
+                <EditText
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/et_usuario"
+                    android:textSize="@dimen/texto_m"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos4"
+                android:layout_below="@id/lyo_datos3">
+
+
+                <TextView
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_password"
+                    android:text="@string/password"
+                    android:textSize="@dimen/texto_m"
+                    />
+
+                <EditText
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/et_password"
+                    android:textSize="@dimen/texto_m"
+                    android:inputType="textPassword"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos5"
+                android:layout_below="@id/lyo_datos4">
+
+
+                <TextView
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height_m"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_password_confirma"
+                    android:text="@string/password_confirma"
+                    android:textSize="@dimen/texto_m"
+                    />
+                <EditText
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/et_confirma"
+                    android:textSize="@dimen/texto_m"
+                    android:inputType="textPassword"/>
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos6"
+                android:layout_below="@id/lyo_datos5">
+
+
+                <TextView
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_email"
+                    android:text="@string/email"
+                    android:textSize="@dimen/texto_m"
+                    />
+
+                <EditText
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/txt_height"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/et_email"
+                    android:textSize="@dimen/texto_m"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lyo_ch"
+                android:id="@+id/lyo_datos8"
+                android:layout_below="@id/lyo_datos6">
+
+
+
+
+                <Button
+                    android:layout_width="@dimen/txt_width_m"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/btn_enviar"
+                    android:text="@string/enviar"
+                    android:textSize="@dimen/texto_m"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos2"
-        android:layout_below="@id/lyo_datos1">
+</ScrollView>
 
-
-        <TextView
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/tv_telefono"
-            android:text="@string/tel"
-            android:textSize="@dimen/texto_m"
-            />
-
-        <EditText
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/et_telefono"
-            android:textSize="@dimen/texto_m"
-            android:inputType="number"/>
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos3"
-        android:layout_below="@id/lyo_datos2">
-
-
-        <TextView
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/tv_usuario"
-            android:text="@string/usuario"
-            android:textSize="@dimen/texto_m"
-            />
-
-        <EditText
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/et_usuario"
-            android:textSize="@dimen/texto_m"/>
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos4"
-        android:layout_below="@id/lyo_datos3">
-
-
-        <TextView
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/tv_password"
-            android:text="@string/password"
-            android:textSize="@dimen/texto_m"
-            />
-
-        <EditText
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/et_password"
-            android:textSize="@dimen/texto_m"
-            android:inputType="textPassword"/>
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos5"
-        android:layout_below="@id/lyo_datos4">
-
-
-        <TextView
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height_m"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/tv_password_confirma"
-            android:text="@string/password_confirma"
-            android:textSize="@dimen/texto_m"
-            />
-        <EditText
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/et_confirma"
-            android:textSize="@dimen/texto_m"
-            android:inputType="textPassword"/>
-
-
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos6"
-        android:layout_below="@id/lyo_datos5">
-
-
-        <TextView
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/tv_email"
-            android:text="@string/email"
-            android:textSize="@dimen/texto_m"
-            />
-
-        <EditText
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/txt_height"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/et_email"
-            android:textSize="@dimen/texto_m"
-            />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lyo_ch"
-        android:id="@+id/lyo_datos8"
-        android:layout_below="@id/lyo_datos6">
-
-
-
-
-        <Button
-            android:layout_width="@dimen/txt_width_m"
-            android:layout_height="@dimen/btn_height"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/btn_enviar"
-            android:text="@string/enviar"
-            android:textSize="@dimen/texto_m"/>
-
-    </RelativeLayout>
-    </RelativeLayout>
-</RelativeLayout>

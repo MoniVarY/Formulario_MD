@@ -1,0 +1,85 @@
+{
+  "productos":[
+    {
+      "codigo":"CP1",
+      "unidades":10,
+      "nombre":"Tang Jamaica",
+      "minDesc":"Polvo para preparar bebida de sabor",
+      "maxDesc":"Consiente a tus hijos con una deliciosa agua de sabor con el nuevo Tang con vitaminas y minerales.",
+      "precio":3.00,
+      "imagen":"tang.jpg"
+    },
+    {
+      "codigo":"CP2",
+      "unidades":15,
+      "nombre":"Coca Cola",
+      "minDesc":"Refresco de cola de 600ml.",
+      "maxDesc":"Refrescante bebida sabor cola. Contenido 600ml.",
+      "precio":10.00,
+      "imagen":"cocacola.jpg"
+    },
+    {
+      "codigo":"CP3",
+      "unidades":20,
+      "nombre":"Bubulubu",
+      "minDesc":"Bombon con jalea de fresa.",
+      "maxDesc":"Bombon con jalea de fresa cubierto con chocolate.",
+      "precio":5.00,
+      "imagen":"bubulubu.jpg"
+    },
+    {
+      "codigo":"CP4",
+      "unidades":10,
+      "nombre":"Memoria USB",
+      "minDesc":"Memoria USB de 8 Gb",
+      "maxDesc":"Guarda tus canciones y videos favoritos con esta memoria usb de 8Gb. Variedad de Colores.",
+      "precio":65.00,
+      "imagen":"usb.jpg"
+    },
+    {
+      "codigo":"CP5",
+      "unidades":5,
+      "nombre":"Xbox 360 Slim",
+      "minDesc":"Consola Xbox 360 Modelo 2013",
+      "maxDesc":"Pasa horas de diversiÛn con tus amigos en Xbox Live con esta consola Xbox 360 de 250Gb.",
+      "precio":2500.00,
+      "imagen":"xbox360.jpg"
+    },
+    {
+      "codigo":"CP6",
+      "unidades":15,
+      "nombre":"AM - Arctic Monkeys (CD)",
+      "minDesc":"Album AM de los Arctic Monkeys",
+      "maxDesc":"Album de m˙sica AM de los Arctic Monkeys. 2013",
+      "precio":265.00,
+      "imagen":"am.jpg"
+    },
+    {
+      "codigo":"CP7",
+      "unidades":10,
+      "nombre":"Pantalon",
+      "minDesc":"Pantalon para caballero.",
+      "maxDesc":"Pantalon para cabllero marca Cuidado con el Perro. Talla 34",
+      "precio":320.00,
+      "imagen":"pantalon.jpg"
+    },
+    {
+      "codigo":"CP8",
+      "unidades":20,
+      "nombre":"iPad Mini",
+      "minDesc":"iPad Mini 32GB",
+      "maxDesc":"iPad Mini de 2da generacion con Pantalla de Retina y 32 Gb.",
+      "precio":3990.00,
+      "imagen":"ipad.jpg"
+    },
+    {
+      "codigo":"CP9",
+      "unidades":15,
+      "nombre":"Juego Gears of War 3",
+      "minDesc":"Gears of War 3 para Xbox 360",
+      "maxDesc":"La galardonada serie Gears of War vuelve con su tercera entrega para concluir esta epica trilogia.",
+      "precio":399.00,
+      "imagen":"gow3.jpg"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 package com.example.mvargas.examen_carrito.common;
 
+import java.io.IOException;
+import java.io.InputStream;
 
+import android.content.Context;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -16,6 +19,8 @@ import java.util.ArrayList;
 
 
 public class Utils {
+
+    //private Context context; //<-- declare a Context reference
 
     /*public static ArrayList<Persona> getData() {
         ArrayList<Persona>personas = new ArrayList<Persona>();
@@ -57,6 +62,31 @@ public class Utils {
     public static void registerApp() {
 
         ListSharedPreference.getInstance().setIntData("firstRun", 1);
+    }
+
+    public String loadJSONFromAsset() {
+        String json;
+        try {
+
+            InputStream is = Session.contex.getAssets().open("productos.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
     }
 
 }

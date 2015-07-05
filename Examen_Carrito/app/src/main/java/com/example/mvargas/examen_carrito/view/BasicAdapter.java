@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.mvargas.examen_carrito.R;
-import com.example.mvargas.examen_carrito.models.Persona;
+
 
 import java.util.ArrayList;
 
@@ -21,16 +21,17 @@ public class BasicAdapter extends BaseAdapter{
 
 
     private Context activityContext;
-    private ArrayList<Persona> personas;
+    //private ArrayList<Persona> personas;
 
-    public BasicAdapter(Context context, ArrayList<Persona> data){
+    /*public BasicAdapter(Context context, ArrayList<Persona> data){
         activityContext=context;
         personas=data;
     }
-
+*/
     @Override
     public int getCount() {
-        return personas.size();
+        //return personas.size();
+        return 1;
     }
 
     @Override
@@ -50,10 +51,10 @@ public class BasicAdapter extends BaseAdapter{
         lienzo=layoutInflater.inflate(R.layout.item_layout,parent,false);
         relationUI(lienzo);
 
-        Persona persona=personas.get(position);
+       /* Persona persona=personas.get(position);
         nameTxt.setText(persona.getNombre());
         countTxt.setText(""+position);
-        //countTxt.setText();
+        //countTxt.setText();*/
 
         return lienzo;
     }

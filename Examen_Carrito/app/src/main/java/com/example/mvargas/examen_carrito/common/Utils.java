@@ -38,7 +38,7 @@ public class Utils {
         ListSharedPreference.getInstance().setIntData("firstRun", 1);
     }
 
-    public String loadJSONFromAsset() {
+    public static String loadJSONFromAsset() {
         String json;
         try {
 

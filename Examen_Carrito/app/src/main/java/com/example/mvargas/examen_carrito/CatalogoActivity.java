@@ -1,5 +1,6 @@
 package com.example.mvargas.examen_carrito;
 
+import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import com.example.mvargas.examen_carrito.view.BasicAdapter;
 import java.util.ArrayList;
 
 
-public class CatalogoActivity extends ActionBarActivity {
+public class CatalogoActivity extends Activity {
     private ListView productos;
     private BasicAdapter adaptador;
 

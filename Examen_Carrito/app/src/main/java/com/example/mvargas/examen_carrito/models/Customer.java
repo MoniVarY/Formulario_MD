@@ -1,8 +1,5 @@
 package com.example.mvargas.examen_carrito.models;
 
-import com.example.mvargas.examen_carrito.common.Contacts;
-
-import java.util.ArrayList;
 
 /**
  * Created by MVARGAS on 03/07/2015.

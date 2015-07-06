@@ -12,6 +12,29 @@ public class Producto {
     private String maxDesc;
     private Double precio;
     private String imagen;
+    private String id_producto;
+
+
+
+    /*public Producto(int id,String code,int units,String name, String minDes, String maxDes, Double price,String img){
+        id_producto=id;
+        codigo=code;
+        unidades=units;
+        nombre=name;
+        minDesc=minDes;
+
+        maxDesc=maxDes;
+        precio=price;
+        imagen=img;
+
+    }*/
+    public String getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(String id_producto) {
+        this.id_producto = id_producto;
+    }
 
     public String getCodigo() {
         return codigo;

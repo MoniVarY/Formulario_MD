@@ -5,9 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.mvargas.examen_carrito.common.Constants;
+import com.example.mvargas.examen_carrito.common.ReadJsonFile;
 import com.example.mvargas.examen_carrito.common.Utils;
 import com.example.mvargas.examen_carrito.models.Customer;
+import com.example.mvargas.examen_carrito.models.Producto;
 import com.example.mvargas.examen_carrito.session.Session;
+
+import java.util.ArrayList;
 
 /**
  * Created by monyvargas on 7/3/15.
@@ -34,15 +38,15 @@ public class DBOperaciones {
         boolean success = false;
         db = carritoSQLiteHelper.getWritableDatabase();
         try {
-            ContentValues values = new ContentValues();
-            values.put("id", (byte[]) null);
-            values.put("name", customer.getNombre());
-            values.put("username", customer.getUsuario());
-            values.put("email", customer.getTelefono());
-            values.put("phone", customer.getCorreo());
-            values.put("password", customer.getPassword());
+            ContentValues usuario = new ContentValues();
+            usuario.put("id", (byte[]) null);
+            usuario.put("name", customer.getNombre());
+            usuario.put("username", customer.getUsuario());
+            usuario.put("email", customer.getTelefono());
+            usuario.put("phone", customer.getCorreo());
+            usuario.put("password", customer.getPassword());
 
-            db.insert(Constants.TABLA_USUARIO, null, values);
+            db.insert(Constants.TABLA_USUARIO, null, usuario);
             success = true;
             db.close();
 
@@ -53,6 +57,37 @@ public class DBOperaciones {
         }
 
         return success;
+    }
+
+    public Boolean creaCatalogo(ArrayList<Producto> arrayList){
+        boolean creado=false;
+        ArrayList<Producto> producto=arrayList;
+        producto= ReadJsonFile.convierteJson();
+        db=carritoSQLiteHelper.getWritableDatabase();
+        try{
+            ContentValues catalogo=new ContentValues();
+            int totalProductos=producto.size();
+            for(int i=0;i<totalProductos;i++){
+                catalogo.put("id", String.valueOf(producto.get(0)));
+                catalogo.put("code",String.valueOf(producto.get(1)));
+                catalogo.put("name",String.valueOf(producto.get(2)));
+                catalogo.put("minDesc",String.valueOf(producto.get(3)));
+                catalogo.put("maxDesc",String.valueOf(producto.get(4)));
+                catalogo.put("image",String.valueOf(producto.get(5)));
+                catalogo.put("units",Integer.parseInt(String.valueOf(producto.get(6))));
+                catalogo.put("price",Double.parseDouble(String.valueOf(producto.get(7))));
+                db.insert(Constants.TABLA_PRODUCTOS,null,catalogo);
+
+            }
+
+
+
+        }
+        catch (Exception e){
+            creado = false;
+            db.close();
+        }
+        return creado=true;
     }
 
     public Customer getCustomer(Customer customer) {

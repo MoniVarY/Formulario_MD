@@ -18,9 +18,24 @@
         android:layout_below="@id/countTxt"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="Nombre"
-        android:textStyle="italic"
+        android:text="Codigo"
         android:textColor="#FF0000"
-        android:id="@+id/nameTxt"/>
+        android:id="@+id/tvCodigo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCodigo"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Nombre"
+        android:id="@+id/tvNombreCatalogo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNombreCatalogo"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="DescripcionBreve"
+        android:id="@+id/tvMinDesc"/>
 
 </LinearLayout>

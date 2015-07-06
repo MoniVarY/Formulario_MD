@@ -59,7 +59,7 @@ public class DBOperaciones {
         return success;
     }
 
-    public Boolean creaCatalogo(ArrayList<Producto> arrayList){
+    /*public Boolean creaCatalogo(ArrayList<Producto> arrayList){
         boolean creado=false;
         ArrayList<Producto> producto=arrayList;
         producto= ReadJsonFile.convierteJson();
@@ -75,20 +75,20 @@ public class DBOperaciones {
                 catalogo.put("maxDesc",String.valueOf(producto.get(4)));
                 catalogo.put("image",String.valueOf(producto.get(5)));
                 catalogo.put("units",Integer.parseInt(String.valueOf(producto.get(6))));
-                catalogo.put("price",Double.parseDouble(String.valueOf(producto.get(7))));
+                catalogo.put("price", Double.parseDouble(String.valueOf(producto.get(7))));
                 db.insert(Constants.TABLA_PRODUCTOS,null,catalogo);
+
 
             }
 
-
-
+            creado=true;
         }
         catch (Exception e){
             creado = false;
             db.close();
         }
-        return creado=true;
-    }
+        return creado;
+    }*/
 
     public Customer getCustomer(Customer customer) {
         Customer savedCustomer = null;
@@ -127,5 +127,29 @@ public class DBOperaciones {
         }
 
         return savedCustomer;
+    }
+
+    public ArrayList<Producto> recuperarDatos() {
+        ArrayList<Producto> recuperaCatalogo=new ArrayList<Producto>();
+        db = carritoSQLiteHelper.getReadableDatabase();
+
+        Cursor c=db.rawQuery(Constants.OBTIENE_PRODUCTOS_QUERY,null);
+        if(c.moveToFirst()){
+            do {
+                Producto producto=new Producto();
+                producto.setId_producto(""+c.getInt(0));
+                producto.setCodigo(c.getString(1));
+                producto.setNombre(c.getString(2));
+                producto.setMinDesc(c.getString(3));
+                producto.setMaxDesc(c.getString(4));
+                producto.setImagen(c.getString(5));
+                producto.setUnidades(c.getInt(6));
+                producto.setPrecio(c.getDouble(7));
+                recuperaCatalogo.add(producto);
+            } while(c.moveToNext());
+
+
+        }
+        return recuperaCatalogo;
     }
 }

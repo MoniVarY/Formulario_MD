@@ -34,13 +34,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         linkUI();
+        inventarioCreado();
     }
 
     private void inventarioCreado(){
-        String archivoJson=Utils.loadJSONFromAsset();
+        /*String archivoJson=Utils.loadJSONFromAsset();
         ReadJsonFile lectura=new ReadJsonFile();
         ArrayList<Producto> catalogo=lectura.convierteJson();
         inventario=dbop.creaCatalogo(catalogo);
+        */
+        ReadJsonFile lectura=new ReadJsonFile();
+        inventario=lectura.insertaCatalogo();
+
         if(inventario==true){
             btn_registrar.setEnabled(true);
             btn_ingresar.setEnabled(true);

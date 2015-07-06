@@ -29,6 +29,7 @@ public class Constants {
     public final static String CREA_USUARIO_TABLA = "CREATE TABLE IF NOT EXISTS tbusuarios " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,name TEXT, username TEXT, email TEXT, phone TEXT, password TEXT)";
     public final static String CREA_PRODUCTOS_TABLA = "CREATE TABLE IF NOT EXISTS tbproductos " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,code TEXT, name TEXT, mindesc TEXT, maxdesc TEXT, image TEXT, units INTEGER, price REAL)";
     public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM tbusuarios " + "WHERE username = ";
+    public final static String OBTIENE_PRODUCTOS_QUERY = "SELECT * FROM tbproductos";
     //public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM tbusuarios";
     public final static String TABLA_PRODUCTOS = "tbproductos";
 

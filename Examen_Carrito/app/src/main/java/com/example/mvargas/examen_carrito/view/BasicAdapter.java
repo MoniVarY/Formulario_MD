@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.mvargas.examen_carrito.CatalogoActivity;
 import com.example.mvargas.examen_carrito.R;
+import com.example.mvargas.examen_carrito.models.Producto;
 
 
 import java.util.ArrayList;
@@ -16,22 +18,21 @@ import java.util.ArrayList;
  * Created by MVARGAS on 02/07/2015.
  */
 public class BasicAdapter extends BaseAdapter{
+
     private TextView nameTxt;
-    private TextView countTxt;
-
-
+    private TextView countTxt,codeTxt,minDesctxt;
     private Context activityContext;
-    //private ArrayList<Persona> personas;
+    private ArrayList<Producto> productos;
 
-    /*public BasicAdapter(Context context, ArrayList<Persona> data){
+    public BasicAdapter(Context context, ArrayList<Producto> data){
         activityContext=context;
-        personas=data;
+        productos=data;
     }
-*/
+
     @Override
     public int getCount() {
-        //return personas.size();
-        return 1;
+        return productos.size();
+        //return 1;
     }
 
     @Override
@@ -51,16 +52,20 @@ public class BasicAdapter extends BaseAdapter{
         lienzo=layoutInflater.inflate(R.layout.item_layout,parent,false);
         relationUI(lienzo);
 
-       /* Persona persona=personas.get(position);
-        nameTxt.setText(persona.getNombre());
+        Producto produts=productos.get(position);
+        nameTxt.setText(produts.getNombre());
         countTxt.setText(""+position);
-        //countTxt.setText();*/
+        codeTxt.setText(produts.getCodigo());
+        minDesctxt.setText(produts.getMinDesc());
+
 
         return lienzo;
     }
 
     private void relationUI(View v){
-        nameTxt=(TextView) v.findViewById(R.id.nameTxt);
+        nameTxt=(TextView) v.findViewById(R.id.tvNombreCatalogo);
         countTxt=(TextView) v.findViewById(R.id.countTxt);
+        codeTxt=(TextView) v.findViewById(R.id.tvCodigo);
+        minDesctxt=(TextView) v.findViewById(R.id.tvMinDesc);
     }
 }

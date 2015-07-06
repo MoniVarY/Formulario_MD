@@ -26,7 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private EditText et_usuario,et_password;
     private Button btn_registrar,btn_ingresar;
-    private Boolean inventario;
+    private Boolean inventario,firstrun;
     DBOperaciones dbop= new DBOperaciones();
 
     @Override
@@ -38,18 +38,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void inventarioCreado(){
-        /*String archivoJson=Utils.loadJSONFromAsset();
-        ReadJsonFile lectura=new ReadJsonFile();
-        ArrayList<Producto> catalogo=lectura.convierteJson();
-        inventario=dbop.creaCatalogo(catalogo);
-        */
-        ReadJsonFile lectura=new ReadJsonFile();
-        inventario=lectura.insertaCatalogo();
-
-        if(inventario==true){
-            btn_registrar.setEnabled(true);
-            btn_ingresar.setEnabled(true);
+        firstrun=Utils.isFirstRun();
+        if (firstrun==true) {
+            ReadJsonFile lectura=new ReadJsonFile();
+            inventario=lectura.insertaCatalogo();
         }
+
     }
 
     private void linkUI(){

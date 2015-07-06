@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class BasicAdapter extends BaseAdapter{
 
     private TextView nameTxt;
-    private TextView countTxt,codeTxt,minDesctxt;
+    private TextView minDesctxt;
     private Context activityContext;
     private ArrayList<Producto> productos;
 
@@ -52,11 +52,9 @@ public class BasicAdapter extends BaseAdapter{
         lienzo=layoutInflater.inflate(R.layout.item_layout,parent,false);
         relationUI(lienzo);
 
-        Producto produts=productos.get(position);
-        nameTxt.setText(produts.getNombre());
-        countTxt.setText(""+position);
-        codeTxt.setText(produts.getCodigo());
-        minDesctxt.setText(produts.getMinDesc());
+        Producto products=productos.get(position);
+        nameTxt.setText(products.getNombre());
+        minDesctxt.setText(products.getMinDesc());
 
 
         return lienzo;
@@ -64,8 +62,6 @@ public class BasicAdapter extends BaseAdapter{
 
     private void relationUI(View v){
         nameTxt=(TextView) v.findViewById(R.id.tvNombreCatalogo);
-        countTxt=(TextView) v.findViewById(R.id.countTxt);
-        codeTxt=(TextView) v.findViewById(R.id.tvCodigo);
         minDesctxt=(TextView) v.findViewById(R.id.tvMinDesc);
     }
 }

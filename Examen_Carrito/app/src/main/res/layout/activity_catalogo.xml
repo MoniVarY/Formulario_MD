@@ -13,5 +13,12 @@
         android:layout_centerHorizontal="true"
         android:background="#CCCCCC">
     </ListView>
+    <Button
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDetalle"
+        android:text="@string/detalle"
+        android:layout_below="@id/listCatalogo"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>

@@ -1,32 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="150dp"
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:id="@+id/countTxt"
-        android:layout_centerHorizontal="true"
-        android:textSize="14dp"
-        android:text="Conteo"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/countTxt"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="Codigo"
-        android:textColor="#FF0000"
-        android:id="@+id/tvCodigo"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvCodigo"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
+        android:textColor="black"
+        android:textStyle="bold"
         android:text="Nombre"
         android:id="@+id/tvNombreCatalogo"/>
     <TextView
@@ -36,6 +19,7 @@
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:text="DescripcionBreve"
+        android:textColor="black"
         android:id="@+id/tvMinDesc"/>
 
 </LinearLayout>

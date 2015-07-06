@@ -65,7 +65,7 @@
             android:id="@+id/btn_registar"
             android:layout_alignParentLeft="true"
             android:text="@string/registra"
-            android:enabled="false"
+            android:enabled="true"
             />
 
         <Button
@@ -74,7 +74,7 @@
             android:id="@+id/btn_ingresar"
             android:layout_alignParentRight="true"
             android:text="@string/ingresa"
-            android:enabled="false"
+            android:enabled="true"
             />
     </RelativeLayout>
 </RelativeLayout>

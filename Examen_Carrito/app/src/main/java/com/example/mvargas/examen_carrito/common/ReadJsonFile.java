@@ -20,38 +20,6 @@ import java.util.ArrayList;
  */
 public class ReadJsonFile {
 
-
-    /*public static ArrayList<Producto>  convierteJson(){
-        ArrayList<Producto> inventario = new ArrayList<Producto>();
-        try{
-
-        JSONObject obj = new JSONObject(Utils.loadJSONFromAsset());
-        JSONArray json_array = obj.getJSONArray("productos");
-
-
-        for (int i = 0; i < json_array.length(); i++)
-        {
-            Producto producto=new Producto();
-            JSONObject catalogo = json_array.getJSONObject(i);
-            producto.setId_producto(null);
-            producto.setCodigo(catalogo.getString("codigo"));
-            producto.setUnidades(catalogo.getInt("unidades"));
-            producto.setNombre(catalogo.getString("nombre"));
-            producto.setMinDesc(catalogo.getString("minDesc"));
-            producto.setMaxDesc(catalogo.getString("maxDesc"));
-            producto.setPrecio(catalogo.getDouble("precio"));
-            producto.setImagen(catalogo.getString("imagen"));
-            inventario.add(producto);
-
-        }
-        }
-        catch (JSONException je){
-
-        }
-        return inventario;
-
-    }*/
-
     DBOperaciones dbOperation= new DBOperaciones();
     SQLiteDatabase db;
 

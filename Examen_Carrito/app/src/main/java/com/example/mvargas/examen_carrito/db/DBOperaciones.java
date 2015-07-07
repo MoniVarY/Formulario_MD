@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by monyvargas on 7/3/15.
  */
 public class DBOperaciones {
-
+   public ArrayList<Producto> recuperaCatalogo=new ArrayList<Producto>();
     public CarritoReaderDBHelper carritoSQLiteHelper;
 
     public SQLiteDatabase db;
@@ -32,6 +32,7 @@ public class DBOperaciones {
         db = carritoSQLiteHelper.getWritableDatabase();
         db.execSQL(Constants.CREA_PRODUCTOS_TABLA);
         db.execSQL(Constants.CREA_USUARIO_TABLA);
+        db.execSQL(Constants.CREA_CARRITO_TABLA);
     }
 
     public boolean creaCliente(Customer customer) {
@@ -59,37 +60,6 @@ public class DBOperaciones {
         return success;
     }
 
-    /*public Boolean creaCatalogo(ArrayList<Producto> arrayList){
-        boolean creado=false;
-        ArrayList<Producto> producto=arrayList;
-        producto= ReadJsonFile.convierteJson();
-        db=carritoSQLiteHelper.getWritableDatabase();
-        try{
-            ContentValues catalogo=new ContentValues();
-            int totalProductos=producto.size();
-            for(int i=0;i<totalProductos;i++){
-                catalogo.put("id", String.valueOf(producto.get(0)));
-                catalogo.put("code",String.valueOf(producto.get(1)));
-                catalogo.put("name",String.valueOf(producto.get(2)));
-                catalogo.put("minDesc",String.valueOf(producto.get(3)));
-                catalogo.put("maxDesc",String.valueOf(producto.get(4)));
-                catalogo.put("image",String.valueOf(producto.get(5)));
-                catalogo.put("units",Integer.parseInt(String.valueOf(producto.get(6))));
-                catalogo.put("price", Double.parseDouble(String.valueOf(producto.get(7))));
-                db.insert(Constants.TABLA_PRODUCTOS,null,catalogo);
-
-
-            }
-
-            creado=true;
-        }
-        catch (Exception e){
-            creado = false;
-            db.close();
-        }
-        return creado;
-    }*/
-
     public Customer getCustomer(Customer customer) {
         Customer savedCustomer = null;
 
@@ -104,7 +74,6 @@ public class DBOperaciones {
 
         try {
             Cursor cursor = db.rawQuery(Constants.OBTIENE_USUARIO_QUERY + "'"+customer.getUsuario()+"'", null);
-            //Cursor cursor = db.rawQuery(Constants.OBTIENE_USUARIO_QUERY , null);
             if (cursor.moveToFirst()) {
                 id=cursor.getInt(0);
                 name = cursor.getString(1);
@@ -130,13 +99,21 @@ public class DBOperaciones {
     }
 
     public ArrayList<Producto> recuperarDatos() {
-        ArrayList<Producto> recuperaCatalogo=new ArrayList<Producto>();
+        String code="";
+        String name="";
+        String mindesc="";
+        String maxdesc="";
+        String image="";
+        String id_back="";
+        Double price = null;
+        int units=0;
+
         db = carritoSQLiteHelper.getReadableDatabase();
 
         Cursor c=db.rawQuery(Constants.OBTIENE_PRODUCTOS_QUERY,null);
         if(c.moveToFirst()){
             do {
-                Producto producto=new Producto();
+                Producto producto=new Producto(id_back,code, name, mindesc, maxdesc, image,units,price);
                 producto.setId_producto(""+c.getInt(0));
                 producto.setCodigo(c.getString(1));
                 producto.setNombre(c.getString(2));
@@ -151,5 +128,113 @@ public class DBOperaciones {
 
         }
         return recuperaCatalogo;
+    }
+
+
+    public ArrayList<Producto> recuperarTicket() {
+        String code="";
+        String name="";
+        String mindesc="";
+        String maxdesc="";
+        String image="";
+        String id_back="";
+        Double price = null;
+        int units=0;
+
+        db = carritoSQLiteHelper.getReadableDatabase();
+
+        Cursor c=db.rawQuery(Constants.OBTIENE_TICKET_QUERY,null);
+        if(c.moveToFirst()){
+            do {
+                Producto producto=new Producto(id_back,code, name, mindesc, maxdesc, image,units,price);
+                producto.setId_producto(""+c.getInt(0));
+                producto.setCodigo(c.getString(1));
+                producto.setNombre(c.getString(2));
+                producto.setMinDesc(c.getString(3));
+                producto.setMaxDesc(c.getString(4));
+                producto.setImagen(c.getString(5));
+                producto.setUnidades(c.getInt(6));
+                producto.setPrecio(c.getDouble(7));
+                recuperaCatalogo.add(producto);
+            } while(c.moveToNext());
+
+
+        }
+        return recuperaCatalogo;
+    }
+
+    public Producto recuperaDetalle(String id){
+        Producto productBack=null;
+        String code;
+        String name;
+        String mindesc;
+        String maxdesc;
+        String image;
+        String id_back;
+        Double price;
+        int units;
+
+        db = carritoSQLiteHelper.getWritableDatabase();
+
+        try {
+            Cursor cursor = db.rawQuery(Constants.OBTIENE_DETALLE_QUERY + "'"+id+"'", null);
+            if (cursor.moveToFirst()) {
+                id_back=""+cursor.getInt(0);
+                code = cursor.getString(1);
+                name = cursor.getString(2);
+                mindesc = cursor.getString(3);
+                maxdesc = cursor.getString(4);
+                image = cursor.getString(5);
+                units=cursor.getInt(6);
+                price=cursor.getDouble(7);
+
+
+                productBack = new Producto(id_back,code, name, mindesc, maxdesc, image,units,price);
+                db.close();
+            }
+            else {
+                productBack = null;
+            }
+        }
+        catch (Exception e) {
+            productBack = null;
+            db.close();
+        }
+
+        return productBack;
+    }
+
+    public boolean insertaTicket(Producto producto) {
+        boolean success = false;
+        db = carritoSQLiteHelper.getWritableDatabase();
+        try {
+            ContentValues productTicket = new ContentValues();
+            productTicket.put("id", (byte[]) null);
+            productTicket.put("code", producto.getCodigo());
+            productTicket.put("name", producto.getNombre());
+            productTicket.put("mindesc", producto.getMinDesc());
+            productTicket.put("maxdesc", producto.getMaxDesc());
+            productTicket.put("image", producto.getImagen());
+            productTicket.put("units", producto.getUnidades());
+            productTicket.put("price", producto.getPrecio());
+
+            db.insert(Constants.TABLA_CARRITO, null, productTicket);
+            success = true;
+            db.close();
+
+        }
+        catch (Exception e) {
+            success = false;
+            db.close();
+        }
+
+        return success;
+    }
+
+    public void restarPieza(String cod, int unid){
+        db = carritoSQLiteHelper.getWritableDatabase();
+        int unidadesRes =unid-1;
+        String sqlActualizaCantidad="UPDATE "+Constants.TABLA_CARRITO+" set units= "+unidadesRes+ " where code ="+"'"+cod+"'";
+        db.execSQL(sqlActualizaCantidad);
     }
 }

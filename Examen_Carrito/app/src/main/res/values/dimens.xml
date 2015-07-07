@@ -5,6 +5,7 @@
 
     <dimen name="btn_width">150dp</dimen>
     <dimen name="btn_height">45dp</dimen>
+    <dimen name="btn_width_ch">110dp</dimen>
     <dimen name="txt_width">50dp</dimen>
     <dimen name="txt_width_m">170dp</dimen>
     <dimen name="txt_width_g">200dp</dimen>

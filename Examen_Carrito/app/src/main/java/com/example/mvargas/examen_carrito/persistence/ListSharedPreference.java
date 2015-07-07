@@ -49,6 +49,22 @@ public class ListSharedPreference {
         editor.commit();
     }
 
+    public void setFloatData(String value, float data){
+        Editor editor=sharedPreferences.edit();
+        editor.putFloat(value, data);
+        editor.commit();
+    }
+
+    public float getFloatData(String key){
+        float resp=0;
+        try {
+            resp=sharedPreferences.getFloat(key,0);
+        }
+        catch (Exception e){
+
+        }
+        return resp;
+    }
     public String getData(String key){
         String resp="";
         try {
@@ -59,6 +75,7 @@ public class ListSharedPreference {
         }
         return resp;
     }
+
     public int getDataInt(String key){
         int resp=0;
         try {

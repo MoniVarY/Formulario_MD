@@ -28,9 +28,12 @@ public class Constants {
     public static  final String DATABASE_NAME="dbexamencarrito.sqlite";
     public final static String CREA_USUARIO_TABLA = "CREATE TABLE IF NOT EXISTS tbusuarios " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,name TEXT, username TEXT, email TEXT, phone TEXT, password TEXT)";
     public final static String CREA_PRODUCTOS_TABLA = "CREATE TABLE IF NOT EXISTS tbproductos " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,code TEXT, name TEXT, mindesc TEXT, maxdesc TEXT, image TEXT, units INTEGER, price REAL)";
+    public final static String CREA_CARRITO_TABLA = "CREATE TABLE IF NOT EXISTS tbcarrito " + "(id INTEGER PRIMARY KEY AUTOINCREMENT ,code TEXT, name TEXT, mindesc TEXT, maxdesc TEXT, image TEXT, units INTEGER, price REAL)";
     public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM tbusuarios " + "WHERE username = ";
+    public final static String OBTIENE_DETALLE_QUERY = "SELECT * FROM tbproductos " + "WHERE code = ";
     public final static String OBTIENE_PRODUCTOS_QUERY = "SELECT * FROM tbproductos";
-    //public final static String OBTIENE_USUARIO_QUERY = "SELECT * FROM tbusuarios";
+    public final static String OBTIENE_TICKET_QUERY = "SELECT * FROM tbcarrito";
+    //public final static String REALIZA_COMPRA_PRODUCTOS = "UPDATE  tbcarrito set " +"units "+unid+ \" where \"+Constants.KEY_CODIGO+\"='\"+cod+\"'\";";
     public final static String TABLA_PRODUCTOS = "tbproductos";
-
+    public final static String TABLA_CARRITO = "tbcarrito";
 }

@@ -16,7 +16,7 @@ public class Producto {
 
 
 
-    /*public Producto(int id,String code,int units,String name, String minDes, String maxDes, Double price,String img){
+    public Producto(String id,String code,String name, String minDes, String maxDes,String img,int units, Double price){
         id_producto=id;
         codigo=code;
         unidades=units;
@@ -27,7 +27,7 @@ public class Producto {
         precio=price;
         imagen=img;
 
-    }*/
+    }
     public String getId_producto() {
         return id_producto;
     }

@@ -1,13 +1,20 @@
 package com.example.mvargas.examen_carrito;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.mvargas.examen_carrito.common.Constants;
 import com.example.mvargas.examen_carrito.db.CarritoReaderDBHelper;
 import com.example.mvargas.examen_carrito.db.DBOperaciones;
 import com.example.mvargas.examen_carrito.models.Producto;
@@ -17,25 +24,57 @@ import com.example.mvargas.examen_carrito.view.BasicAdapter;
 import java.util.ArrayList;
 
 
-public class CatalogoActivity extends Activity {
+public class CatalogoActivity extends Activity implements View.OnClickListener{
     private ListView productos;
-    private BasicAdapter adaptador;
+    private Button btnPagar,btnVerCarrito;
+    private ArrayList<Producto> catalogo;
+
+    private boolean iscatalog=false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
         linkUI();
+        llenarLista();
+
     }
+
+
 
     public void linkUI(){
         productos=(ListView) findViewById(R.id.listCatalogo);
-    }
-    public void llenarLista(){
-        DBOperaciones help=new DBOperaciones();//getApplicationContext()
+        btnPagar=(Button) findViewById(R.id.btnPagar);
+        btnVerCarrito=(Button) findViewById(R.id.btnVerCarrito);
+        btnPagar.setOnClickListener(this);
+        btnVerCarrito.setOnClickListener(this);
 
-        ArrayList<Producto> catalogo=help.recuperarDatos();
-        adaptador=new BasicAdapter(Session.contex, catalogo);
+    }
+
+
+
+
+    @Override
+    public void onClick(View v) {
+        if(v == btnVerCarrito){
+            Intent intent1=new Intent(this,CarritoActivity.class);
+            intent1.putExtra("catalog",false);
+            startActivity(intent1);
+        }
+
+
+    }
+
+
+    public void llenarLista(){
+
+        Bundle values=getIntent().getExtras();
+        iscatalog= values.getBoolean("catalog");
+        DBOperaciones help=new DBOperaciones();
+        catalogo = help.recuperarDatos();
+
+        BasicAdapter adaptador = new BasicAdapter(Session.contex, catalogo, this,iscatalog);
         productos.setAdapter(adaptador);
     }
 
@@ -60,4 +99,6 @@ public class CatalogoActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

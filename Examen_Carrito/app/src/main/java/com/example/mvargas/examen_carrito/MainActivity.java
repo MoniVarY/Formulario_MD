@@ -26,7 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private EditText et_usuario,et_password;
     private Button btn_registrar,btn_ingresar;
-    private Boolean inventario,firstrun;
+    private boolean inventario,firstrun ,iscart,iscatalog;
     DBOperaciones dbop= new DBOperaciones();
 
     @Override
@@ -38,10 +38,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void inventarioCreado(){
-        firstrun=Utils.isFirstRun();
-        if (firstrun==true) {
+        ArrayList<Producto> consultacreado=dbop.recuperarDatos();
+        boolean existe=false;
+        existe=consultacreado.isEmpty();
+        if (existe==true) {
             ReadJsonFile lectura=new ReadJsonFile();
             inventario=lectura.insertaCatalogo();
+            existe=false;
         }
 
     }
@@ -76,8 +79,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     if(!(clienteRetornado == null)){
                         if(usuario.equals(clienteRetornado.getUsuario())){
                             if (contrasena.equals(clienteRetornado.getPassword())){
+                                iscatalog=true;
                                 Intent intent1=new Intent(this,CatalogoActivity.class);
-                                intent1.putExtra("value",1);
+                                intent1.putExtra("catalog",true);
                                 startActivity(intent1);
                             }
                             else {

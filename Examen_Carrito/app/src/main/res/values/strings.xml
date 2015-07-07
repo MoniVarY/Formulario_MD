@@ -23,6 +23,7 @@
     <string name="ingresa">Ingresa</string>
     <string name="catalogo">Catalogo</string>
     <string name="unidades">Unidades</string>
+    <string name="precio">Precio</string>
     <string name="descripcion">Descripcion</string>
     <string name="detalle">Detalle del producto</string>
     <string name="titulo_registra">Registrate</string>
